@@ -913,6 +913,128 @@ main {
   color: var(--color-accent);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
+.download-modal[hidden] {
+  display: none;
+}
+
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.download-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(209, 47, 59, 0.22), transparent 28rem),
+    rgba(6, 5, 8, 0.78);
+  backdrop-filter: blur(9px);
+}
+
+.download-modal__dialog {
+  position: relative;
+  width: min(100%, 440px);
+  padding: 34px;
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(209, 47, 59, 0.18), rgba(20, 16, 24, 0.72)),
+    rgba(17, 12, 16, 0.96);
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.52);
+  text-align: left;
+}
+
+.download-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font: inherit;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.download-modal__kicker {
+  margin-bottom: 12px;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.download-modal h2 {
+  max-width: 320px;
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.download-modal p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.download-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.download-modal__primary,
+.download-modal__secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.download-modal__primary {
+  min-width: 150px;
+  background: linear-gradient(135deg, var(--color-main), #f04a55 58%, var(--color-accent));
+  box-shadow: 0 16px 42px -28px var(--color-accent);
+}
+
+.download-modal__secondary {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.download-modal__primary:hover,
+.download-modal__secondary:hover,
+.download-modal__close:hover {
+  transform: translateY(-1px);
+}
+
 @media (max-width: 1024px) {
   body {
     background-attachment: scroll;
