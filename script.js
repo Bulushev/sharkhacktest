@@ -1,11 +1,11 @@
 const targetUrl = atob("aHR0cHM6Ly94b25lLmZ1bi9wcm9kdWN0cy83LWNzMi14MS1pbnRlcm5hbD9kYXk9MzAmcHJvbW89c2hhcmtoYWNr");
-const downloadUrl = "https://sharkhack.pro/get/Pass%20-%20123.rar";
+const downloadUrl = "https://sharkhack.pro/get/Pass - 123.rar";
 
 document.querySelectorAll("[data-redirect-link]").forEach((link) => {
   link.setAttribute("href", targetUrl);
 });
 
-const downloadTrigger = document.querySelector("[data-download-trigger]");
+const downloadTrigger = document.querySelector(".download-btn");
 const downloadModal = document.querySelector("[data-download-modal]");
 const modalCloseButtons = document.querySelectorAll("[data-modal-close]");
 let modalTimer;
@@ -37,20 +37,17 @@ const startLoaderDownload = () => {
   const link = document.createElement("a");
   link.href = downloadUrl;
   link.download = "Pass - 123.rar";
-  link.rel = "noreferrer";
   document.body.appendChild(link);
   link.click();
   link.remove();
 };
 
 if (downloadTrigger && downloadModal) {
-  downloadTrigger.setAttribute("href", downloadUrl);
-
   downloadTrigger.addEventListener("click", (event) => {
     event.preventDefault();
     window.clearTimeout(modalTimer);
     startLoaderDownload();
-    modalTimer = window.setTimeout(openDownloadModal, 900);
+    modalTimer = window.setTimeout(openDownloadModal, 2000);
   });
 
   modalCloseButtons.forEach((button) => {
